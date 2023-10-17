@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "Rectangle.h"
+
 using namespace std;
 
 
@@ -117,5 +119,9 @@ int main()
     fstream readWriteFile;
     file.open("data.txt", ios::in | ios::out | ios::app); 
     file.close();
+
+    const Rectangle rectangle{20, 20}; // const Rectangle becomes immutable and only const methods are accessible
+    auto rect = make_unique<Rectangle>(30, 30); // Never use 'new' unless somehow explicitly needed, to avoid memory leaks
+    
 }
 
