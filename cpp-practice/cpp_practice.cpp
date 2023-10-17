@@ -10,6 +10,27 @@ int max_num(int a, int b)
     return a < b ? a : b;
 }
 
+struct Customer
+{
+    int id;
+    string name;
+    string email;
+
+    /*bool operator==(const Customer& other) const
+    {
+        return(id == other.id &&
+            name == other.name &&
+            email == other.email);
+    }*/
+};
+
+bool operator==(const Customer& first, const Customer& second)
+{
+    return(first.id == second.id &&
+        first.name == second.name &&
+        first.email == second.email);
+}
+
 int main()
 {
     // Random Numbers
@@ -19,7 +40,7 @@ int main()
     int die_1 = rand() % (max_value - min_value) + 1;
     int die_2 = rand() % (max_value - min_value) + 1;
     cout << "Die 1: " << die_1 << endl << "Die 2: " << die_2 << endl;
-
+    
     // Text Formatting
     cout << left;
     cout << setw(10) << "Spring" << "Nice" << endl
@@ -38,4 +59,12 @@ int main()
     cout << +ch;
 
     max_num(1, 5);
+
+    // Structs and Operator overloading
+    Customer a;
+    Customer b;
+    if(a == b) // Can be defined either a member or non-member. Some operators are only available as non-members. Check cppreference.
+    {
+        
+    }
 }
