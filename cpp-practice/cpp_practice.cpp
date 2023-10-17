@@ -24,6 +24,23 @@ struct Customer
     }*/
 };
 
+int get_input(string displayMessage)
+{
+    int var;
+    while(true)
+    {
+        cout << displayMessage;
+        cin >> var;
+        if(cin.fail())
+        {
+            cout << "Enter a valid number!" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }else break;
+    }
+    return var;
+}
+
 bool operator==(const Customer& first, const Customer& second)
 {
     return(first.id == second.id &&
@@ -67,4 +84,7 @@ int main()
     {
         
     }
+
+    // Stream reading
+    int x = get_input("Please enter a number: ");
 }
