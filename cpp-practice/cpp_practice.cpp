@@ -4,6 +4,12 @@
 
 using namespace std;
 
+
+int max_num(int a, int b)
+{
+    return a < b ? a : b;
+}
+
 int main()
 {
     // Random Numbers
@@ -26,5 +32,10 @@ int main()
     cout << left << setw(15) << "Course" << setw(15) << "Students" << endl;
     cout << left << setw(15) << "C++" << right << setw(15) << "100" << endl;
     cout << left << setw(15) << "JavaScript" << right << setw(15) << "50" << endl;
-    
+
+    // Treating char as number
+    char ch = 'a';
+    cout << +ch;
+
+    max_num(1, 5);
 }
