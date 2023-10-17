@@ -111,5 +111,11 @@ int main()
         }
         readFile.close();
     }
+
+    // Use this to read, write (append) to a file, instead of using separate streams
+    // ifstream and ofstream just assume a specific open-mode
+    fstream readWriteFile;
+    file.open("data.txt", ios::in | ios::out | ios::app); 
+    file.close();
 }
 
