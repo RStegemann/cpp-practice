@@ -1,6 +1,7 @@
-#include <cstdlib>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -73,7 +74,7 @@ int main()
 
     // Treating char as number
     char ch = 'a';
-    cout << +ch;
+    cout << +ch << endl;
 
     max_num(1, 5);
 
@@ -86,5 +87,29 @@ int main()
     }
 
     // Stream reading
-    int x = get_input("Please enter a number: ");
+    //int x = get_input("Please enter a number: ");
+
+    // File streams
+    ofstream file;
+    file.open("data.txt");
+    if(file.is_open())
+    {
+        file << "Hello World\n"; // Better to use \n instead of endl, for performance. Prevents unnecessary buffer flush.
+        file.close();
+    }
+
+    ifstream readFile;
+    readFile.open("data.txt");
+    if(readFile.is_open())
+    {
+        while(!readFile.eof())
+        {
+            string data;
+            //readFile >> data; // Reads until delimiter
+            getline(readFile, data, ' '); // reads entire line or until character specified in delimiter
+            cout << data << endl;
+        }
+        readFile.close();
+    }
 }
+
